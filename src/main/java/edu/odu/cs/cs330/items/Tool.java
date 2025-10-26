@@ -116,8 +116,11 @@ public class Tool extends Equippable {
 
         Tool rhsItem = (Tool) rhs;
 
-        // Replace the return
-        return false;
+        return this.name.equals(rhsItem.name)
+            && this.speed == rhsItem.speed
+            && this.getMaterial().equals(rhsItem.getMaterial()) 
+            && this.getModifier().equals(rhsItem.getModifier())
+            && this.getModifierLevel() == (rhsItem.getModifierLevel());
     }
 
     /**
@@ -127,8 +130,11 @@ public class Tool extends Equippable {
     @Override
     public int hashCode()
     {
-        // Replace the return
-        return -1;
+        return this.name.hashCode() 
+            + this.speed
+            + this.getMaterial().hashCode() 
+            + this.getModifier().hashCode()
+            + this.getModifierLevel();
     }
 
     /**
@@ -138,6 +144,14 @@ public class Tool extends Equippable {
     public String toString()
     {
         // Use String.format and the provided FMT_STR
-        return "  Not Implemented";
+        return String.format(
+            FMT_STR, 
+            super.name,
+            this.getDurability(), 
+            this.speed,
+            this.getMaterial(),
+            this.getModifier(), this.getModifierLevel(),
+            this.getElement()
+        );
     }
 }

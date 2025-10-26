@@ -119,7 +119,10 @@ public class Consumable extends Item {
     {
         Consumable cpy = new Consumable();
         
-        // Add the missing logic
+        cpy.setName(this.name);
+
+        cpy.setEffect(this.effect);
+        cpy.setNumberOfUses(this.uses);
 
         return cpy;
     }
@@ -152,8 +155,7 @@ public class Consumable extends Item {
     @Override
     public int hashCode()
     {
-        // Replace the return
-        return -1;
+        return name.hashCode() + effect.hashCode();
     }
 
     /**
@@ -163,6 +165,11 @@ public class Consumable extends Item {
     public String toString()
     {
         // Use String.format and the provided FMT_STR
-        return "  Not Implemented";
+        return String.format(
+            FMT_STR, 
+            super.name, 
+            this.effect, 
+            this.uses
+        );
     }
 }
