@@ -69,8 +69,8 @@ public class Tool extends Equippable {
     @Override
     public int requiredNumberOfValues()
     {
-        // What is the correct return value?
-        return -1;
+        // # of fields
+        return 6;
     }
 
     @Override
@@ -78,7 +78,11 @@ public class Tool extends Equippable {
     {
         this.setName(tokens[0]);
 
-        // Complete this method.
+        this.setMaterial(tokens[1]);
+        this.setDurability(Integer.parseInt(tokens[2]));
+        this.setSpeed(Integer.parseInt(tokens[3]));
+        this.setModifier(tokens[4]);
+        this.setModifierLevel(Integer.parseInt(tokens[5]));
 
     }
 
@@ -143,7 +147,6 @@ public class Tool extends Equippable {
     @Override
     public String toString()
     {
-        // Use String.format and the provided FMT_STR
         return String.format(
             FMT_STR, 
             super.name,
